@@ -3,7 +3,7 @@ const inputDir = '.\\lesson02\\input\\';
 // Append the files from the input folder one after each other, order doesn't matter
 
 const fileContents = [];
-let filesLeft = 0;
+let filesLeft = [];
 
 fs.readdir(inputDir, (err, files) => {
 	filesLeft = files.length;
@@ -20,6 +20,6 @@ function handleFileRead(fileContent) {
 	filesLeft--;
 	if (filesLeft === 0) {
 		console.log(fileContents.join(''));
-		fs.writeFileSync(`${inputDir}output.txt`, fileContents.join(''));
+		fs.writeFile(`${inputDir}output.txt`, fileContents.join(''), err => {});
 	}
 }
