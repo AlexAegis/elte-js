@@ -7,7 +7,15 @@
 		{
 			"type": "node",
 			"request": "launch",
+			"console": "integratedTerminal",
 			"name": "Run File",
+			"program": "${file}"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"console": "externalTerminal",
+			"name": "Run File (External Terminal)",
 			"program": "${file}"
 		}
 	]
