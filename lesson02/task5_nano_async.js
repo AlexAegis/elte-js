@@ -2,8 +2,7 @@ const fs = require('nano-fs');
 const inputDir = '.\\lesson02\\input\\';
 // Append the files from the input folder one after each other, order doesn't matter
 
-const fileContents = [];
-let filesLeft = [];
+
 
 const writeToFile = async (template, data, filePath) => {
 	const HTML = await renderTemplate(template, data); // Render template
