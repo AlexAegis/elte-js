@@ -1,0 +1,24 @@
+{
+	"name": "elte-js",
+	"version": "1.0.0",
+	"description": "ELTE IK - Javascript Technológiák",
+	"main": "index.js",
+	"dependencies": {
+		"co": "^4.6.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlexAegis/elte-js.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AlexAegis/elte-js/issues"
+	},
+	"homepage": "https://github.com/AlexAegis/elte-js#readme"
+}
