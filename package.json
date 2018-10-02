@@ -4,7 +4,8 @@
 	"description": "ELTE IK - Javascript Technológiák",
 	"main": "index.js",
 	"dependencies": {
-		"co": "^4.6.0"
+		"co": "^4.6.0",
+		"rxjs": "^6.3.3"
 	},
 	"devDependencies": {},
 	"scripts": {
