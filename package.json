@@ -7,9 +7,12 @@
 		"co": "^4.6.0",
 		"rxjs": "^6.3.3"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"create-react-app": "^2.0.3"
+	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"create-demo": "create-react-app demo"
 	},
 	"repository": {
 		"type": "git",

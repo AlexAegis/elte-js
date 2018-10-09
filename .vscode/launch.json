@@ -7,6 +7,14 @@
 		{
 			"type": "node",
 			"request": "launch",
+			"name": "Launch via NPM",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["run ", "debug"],
+			"port": 9229
+		},
+		{
+			"type": "node",
+			"request": "launch",
 			"console": "integratedTerminal",
 			"name": "Run File",
 			"program": "${file}"
@@ -17,6 +25,13 @@
 			"console": "externalTerminal",
 			"name": "Run File (External Terminal)",
 			"program": "${file}"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Launch Chrome against localhost",
+			"url": "http://localhost:3000",
+			"webRoot": "${workspaceFolder}"
 		}
 	]
 }

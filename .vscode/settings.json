@@ -1,60 +1,65 @@
 {
-    "git.path": "C:\\Users\\alexaegis\\Downloads\\PortableGit\\cmd\\git.exe",
-    "editor.formatOnSave": true,
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/dist": true
-    },
-    "cSpell.words": [
-        "alexaegis",
-        "classlist",
-        "codelyzer",
-        "compat",
-        "definitelytyped",
-        "deserialize",
-        "devkit",
-        "gmail",
-        "httpexceptions",
-        "injectable",
-        "jasminewd",
-        "kjhtml",
-        "lcovonly",
-        "linebreak",
-        "middlewares",
-        "minifies",
-        "noopener",
-        "pids",
-        "polyfills",
-        "resave",
-        "signup",
-        "style",
-        "styleext",
-        "truthy",
-        "tsed",
-        "typeorm",
-        "user"
-    ],
-    "emmet.triggerExpansionOnTab": true,
-    // Only avilable as user setting, copy the rest to your settings
-    "material-icon-theme.files.associations": {
-        "tsconfig.json": "typescript-def"
-    },
-    "material-icon-theme.folders.associations": {
-        "server": "webpack"
-    },
-    "editor.tabCompletion": true,
-    "editor.tabSize": 4,
-    "typescript.referencesCodeLens.enabled": true,
-    "cSpell.language": "en",
-    "editor.formatOnSave": true,
-    "prettier.tabWidth": 4,
-    "prettier.useTabs": true,
-    "prettier.singleQuote": true,
-    "prettier.eslintIntegration": true,
-    "typescript.tsdk": "node_modules\\typescript\\lib",
-    "eslint.autoFixOnSave": true,
-    "tslint.ignoreDefinitionFiles": false,
-    "tslint.autoFixOnSave": true,
-    "tslint.exclude": "**/node_modules/**/*"
+	"editor.smoothScrolling": true,
+	"window.smoothScrollingWorkaround": true,
+	"smoothtype.duration": 80,
+	// Ask before restarting after a command is successfully run.
+	"smoothtype.autoReload": false,
+	"git.path": "C:\\Users\\alexaegis\\Downloads\\PortableGit\\cmd\\git.exe",
+	"editor.formatOnSave": true,
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/dist": true
+	},
+	"cSpell.words": [
+		"alexaegis",
+		"classlist",
+		"codelyzer",
+		"compat",
+		"definitelytyped",
+		"deserialize",
+		"devkit",
+		"gmail",
+		"httpexceptions",
+		"injectable",
+		"jasminewd",
+		"kjhtml",
+		"lcovonly",
+		"linebreak",
+		"middlewares",
+		"minifies",
+		"noopener",
+		"pids",
+		"polyfills",
+		"resave",
+		"signup",
+		"style",
+		"styleext",
+		"truthy",
+		"tsed",
+		"typeorm",
+		"user"
+	],
+	"emmet.triggerExpansionOnTab": true,
+	// Only avilable as user setting, copy the rest to your settings
+	"material-icon-theme.files.associations": {
+		"tsconfig.json": "typescript-def"
+	},
+	"material-icon-theme.folders.associations": {
+		"server": "webpack"
+	},
+	"editor.tabCompletion": true,
+	"editor.tabSize": 4,
+	"typescript.referencesCodeLens.enabled": true,
+	"cSpell.language": "en",
+	"editor.formatOnSave": true,
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"prettier.eslintIntegration": true,
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"eslint.autoFixOnSave": true,
+	"tslint.ignoreDefinitionFiles": false,
+	"tslint.autoFixOnSave": true,
+	"tslint.exclude": "**/node_modules/**/*"
 }
