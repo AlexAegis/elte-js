@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-export class MyInput extends React.Component {
+export default class MyInput extends React.Component {
 	PropTypes = { label: PropTypes.string };
 
 	constructor(props) {
@@ -9,7 +8,22 @@ export class MyInput extends React.Component {
 		this.state = {
 			inputValue: ''
 		};
+
+		//this.setInputRef = () => this.setInputRef;
+	} /*
+
+	componentDidMount() {
+		var maskProps = {
+			clearMaskOnLostFocus: false,
+			rightAlign: false
+		};
+		var inputmask = new Inputmask.Inputmask('99-9999999', maskProps);
+		inputmask.mask(this.input);
 	}
+
+	setInputRef(inputComponent) {
+		this.input = inputComponent.getDOMNode();
+    }*/
 
 	onChange(e) {
 		console.log(e);
@@ -27,6 +41,7 @@ export class MyInput extends React.Component {
 					name="url"
 					type="text"
 					value={inputValue}
+					//ref={this.setInputRef}
 					onChange={e => this.onChange(e)}
 				/>
 			</div>

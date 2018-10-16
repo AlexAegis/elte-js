@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Counter } from './Counter';
 import './App.css';
-import { MyInput } from './my-input/my-input';
+import MyInputGroup from './my-input-group/my-input-group';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<MyInput ref={me => (this.myInput = me)} label="URL" />
-				<input
-					type="button"
-					value="OK"
-					onClick={() => console.log(this.myInput.state.inputValue)}
+				<MyInputGroup label="URL" onSubmit={() => console.log('asd')} />
+				<MyInputGroup
+					label="List name"
+					onSubmit={() => console.log('cicafül')}
 				/>
 			</div>
 		);
