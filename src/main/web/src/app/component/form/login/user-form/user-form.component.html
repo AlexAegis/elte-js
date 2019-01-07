@@ -1,0 +1,56 @@
+<div [formGroup]="parent">
+	<div formGroupName="user" id="user-form">
+		<mat-form-field hideRequiredMarker>
+			<input
+				matInput
+				autocomplete="username"
+				formControlName="username"
+				placeholder="Username"
+				[(focus)]="usernameFocused"
+			/>
+			<mat-error *ngIf="user.controls['username'].dirty && user.controls['username'].errors?.required">
+				Reqired
+			</mat-error>
+			<mat-error
+				*ngIf="
+					(parent.errors && parent.errors['username_not_available']) ||
+					(user.controls['username'].value &&
+						user.controls['username'].invalid &&
+						user.controls['username'].dirty)
+				"
+			>
+				<ng-template [ngIf]="requireExisting"> Username does not exist </ng-template>
+				<ng-template [ngIf]="!requireExisting"> Username already exist </ng-template>
+			</mat-error>
+
+			<mat-hint *ngIf="user.controls['username'].valid"> Hooray :) </mat-hint>
+
+			<mat-spinner *ngIf="user.controls['username'].pending" color="accent" diameter="20" matSuffix></mat-spinner>
+		</mat-form-field>
+
+		<mat-form-field hideRequiredMarker>
+			<input
+				matInput
+				type="password"
+				autocomplete="current-password"
+				formControlName="password"
+				placeholder="Password"
+				[(focus)]="passwordFocused"
+				[type]="hide ? 'password' : 'text'"
+				[errorStateMatcher]="parentMatcher"
+			/>
+			<mat-error *ngIf="parent.errors && parent.errors['login_failed']"> Bad pass </mat-error>
+			<mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+		</mat-form-field>
+		<mat-form-field hideRequiredMarker *ngIf="confirmNeeded">
+			<input
+				matInput
+				type="password"
+				autocomplete="current-password"
+				formControlName="passwordConfirm"
+				placeholder="Confirm password"
+				[type]="hide ? 'password' : 'text'"
+			/>
+		</mat-form-field>
+	</div>
+</div>

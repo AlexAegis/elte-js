@@ -1,0 +1,29 @@
+@import '../../../../style/responsive.scss';
+
+:host {
+	//box-shadow: 0 0 100em 0 rgba(0, 0, 0, 0.192);
+
+	form {
+		padding: 1em;
+		grid-gap: 1em;
+
+		grid-row: 2;
+		//display: block;
+		//margin: 10rem 5rem 2rem 1rem;
+
+		display: grid;
+		background-color: rgba($color: #b6b6b6, $alpha: 0.08);
+		//box-shadow: inset 0 0 100rem 0 rgba(59, 59, 59, 0.082);
+		@include respond-to(medium, small) {
+			grid-template-columns: 1fr;
+		}
+		@include respond-to(large) {
+			grid-template-columns: 1fr;
+		}
+
+		//padding: 1em;
+		//grid-column-gap: 1em;
+		//
+		//grid-template-rows: repeat(auto-fit, minmax(5rem, auto));
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach - Client",
+			"url": "http://localhost:4200",
+			"webRoot": "${workspaceFolder}/src/main/web/"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Launch - Client",
+			"url": "http://localhost:4200",
+			"webRoot": "${workspaceFolder}/src/main/web/",
+			"preLaunchTask": "start",
+			"cwd": "${workspaceFolder}/src/main/web/"
+		},
+		{
+			"type": "java",
+			"name": "Launch - Backend",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"stopOnEntry": false,
+			"mainClass": "hu.elte.assignment.AssignmentApplication",
+			"vmArgs": "-XXaltjvm=dcevm -javaagent:./.hotswap/hotswap-agent-1.3.0.jar=autoHotswap=true",
+			"args": "",
+			"projectName": "assignment"
+		}
+	]
+}

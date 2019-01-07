@@ -1,0 +1,25 @@
+<h1>Movies</h1>
+<button mat-flat-button color="accent" [routerLink]="['/movies/new']">
+	<fa-icon icon="plus" size="lg" transform="down-0 left-2"></fa-icon>New
+</button>
+<ag-grid-angular
+	#grid
+	[enableSorting]="true"
+	[animateRows]="true"
+	[enableFilter]="true"
+	class="ag-theme-material"
+	[suppressCellSelection]="true"
+	[columnDefs]="columnDefs"
+	[accentedSort]="true"
+	[rowData]="movies | async"
+	(rowSelected)="rowSelect($event)"
+	(selection)="onSelectionChanged($event)"
+	(gridSizeChanged)="onGridSizeChanged($event)"
+	(rowClicked)="clicked($event)"
+	[rowClassRules]="rowClassRules"
+	[pagination]="false"
+	[paginationPageSize]="4"
+	(gridReady)="gridReady($event)"
+	[getRowNodeId]="getRowNodeId"
+>
+</ag-grid-angular>

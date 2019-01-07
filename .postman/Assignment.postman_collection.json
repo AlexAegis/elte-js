@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "bc7c4e53-6f20-4920-9476-fe11768bb264",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cinema",
+			"item": [
+				{
+					"name": "cinema/movie",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/rest/cinema/movie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rest",
+								"cinema",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cinema/movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Test Movie 2\",\n\t\"release\": \"2018-12-01\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/rest/cinema/movie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rest",
+								"cinema",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "rest/users/current",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiQ2luZW1hUmVzdCJdLCJleHAiOjE1NDI2MDY2MTcsInVzZXJfbmFtZSI6InMiLCJqdGkiOiI3OThjZjllYS00OTc5LTQ2Y2ItYjMyNi1mMzRlZjc0YmI5Y2YiLCJjbGllbnRfaWQiOiJDaW5lbWFDbGllbnQiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.Kkqim36r9mwDQp9wDvubh1y6wKszZoazJjEeik9JS2U",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/rest/users/current",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rest",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/user/current",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"current"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiQ2luZW1hUmVzdCJdLCJleHAiOjE1NDI2MDY2MTcsInVzZXJfbmFtZSI6InMiLCJqdGkiOiI3OThjZjllYS00OTc5LTQ2Y2ItYjMyNi1mMzRlZjc0YmI5Y2YiLCJjbGllbnRfaWQiOiJDaW5lbWFDbGllbnQiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.Kkqim36r9mwDQp9wDvubh1y6wKszZoazJjEeik9JS2U",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a4c1e65c-5aad-4412-b854-fc8ac3092c13",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f698117f-d05c-4353-89fd-cb692d7ea4b0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8fe3c120-10be-4729-9185-bfc505568e33",
+			"key": "url",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

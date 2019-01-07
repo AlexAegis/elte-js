@@ -1,0 +1,67 @@
+<div class="window">
+	<ng-progress #progressBar></ng-progress>
+	<mat-toolbar color="primary" [@expand]="navSize()" (@expand.done)="expandDone($event)">
+		<mat-toolbar-row id="mainBar">
+			<app-hamburger
+				*ngIf="!mediaLarge && auth.user !== undefined && auth.user !== null"
+				@leave
+				[(open)]="sidebar.opened"
+			></app-hamburger>
+			<button
+				[@expandTitle]="navSize()"
+				class="title"
+				mat-button
+				[routerLink]="['']"
+				matRipple
+				disableRipple
+				[matRippleRadius]="800"
+				[matRippleColor]="color"
+			>
+				{{ title }}
+			</button>
+
+			<div id="user">
+				<ng-template [appLoading]="auth.login$ | async">
+					<app-login
+						#login
+						class="fixed-bottom fixed-right"
+						*ngIf="auth.user === undefined"
+						[@translateLogin]="navSize()"
+					></app-login>
+
+					<app-user [user]="auth.user" *ngIf="auth.user !== undefined"></app-user>
+				</ng-template>
+			</div>
+		</mat-toolbar-row>
+	</mat-toolbar>
+
+	<app-sidebar #sidebar [disabled]="auth.user === undefined || auth.user === null">
+		<ng-scrollbar #scrollable barClass="scroll-bar" thumbClass="scroll-thumbs">
+			<div id="content">
+				<div id="content-main">
+					<router-outlet #outlet="outlet"></router-outlet>
+
+					<app-home *ngIf="router.url === '/' && auth.user !== undefined && auth.user !== null"></app-home>
+					<app-welcome *ngIf="router.url === '/' && auth.user === undefined"></app-welcome>
+				</div>
+			</div>
+
+			<!--
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+				<app-lorem></app-lorem>
+			-->
+		</ng-scrollbar>
+	</app-sidebar>
+</div>
+
+{{ auth.login$ | async | json }}
