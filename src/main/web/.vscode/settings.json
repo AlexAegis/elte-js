@@ -24,10 +24,5 @@
 	},
 	"material-icon-theme.files.associations": {
 		"*.animation.ts": "purescript"
-	},
-	"workbench.colorCustomizations": {
-		"activityBar.background": "#18341A",
-		"titleBar.activeBackground": "#214825",
-		"titleBar.activeForeground": "#F7FBF7"
 	}
 }
