@@ -20,7 +20,6 @@ export class CaesarFormComponent implements OnInit {
 
 	ngOnInit() {
 		this.caesar = this.formBuilder.group({
-			seed: ['', [Validators.required]],
 			decryptedMessage: ['', []],
 			encryptedMessage: ['', []]
 		});
