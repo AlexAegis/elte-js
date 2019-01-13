@@ -32,8 +32,4 @@ public class Person extends Base implements Serializable {
 	@OneToOne(mappedBy = "person")
 	private User user;
 
-	@JsonIgnore
-	@OneToOne(mappedBy = "person")
-	private Actor actor;
-
 }

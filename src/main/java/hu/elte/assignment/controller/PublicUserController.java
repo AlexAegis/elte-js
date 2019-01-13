@@ -1,13 +1,11 @@
 package hu.elte.assignment.controller;
 
 import hu.elte.assignment.api.Message;
-import hu.elte.assignment.api.MessageType;
 import hu.elte.assignment.api.Response;
 import hu.elte.assignment.data.dto.validation.AvailablePayload;
 import hu.elte.assignment.data.model.user.User;
 import hu.elte.assignment.data.repository.user.UserRepository;
 import lombok.experimental.FieldDefaults;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
@@ -24,14 +22,11 @@ final class PublicUserController {
 
 	UserRepository userRepository;
 
-	ModelMapper modelMapper;
-
 	PasswordEncoder bCryptPasswordEncoder;
 
 	@Autowired
-	public PublicUserController(UserRepository userRepository, ModelMapper modelMapper, @Lazy PasswordEncoder bCryptPasswordEncoder) {
+	public PublicUserController(UserRepository userRepository, @Lazy PasswordEncoder bCryptPasswordEncoder) {
 		this.userRepository = userRepository;
-		this.modelMapper = modelMapper;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 
@@ -70,6 +65,5 @@ final class PublicUserController {
 		}
 		return ResponseEntity.ok(res.build());
 	}
-
 
 }

@@ -16,21 +16,12 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public final class UserController {
 
-	ModelMapper modelMapper;
-
-	@Autowired
-	public UserController(ModelMapper modelMapper) {
-		this.modelMapper = modelMapper;
-	}
-
 	/**
 	 * @param user Same as SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	 * @return
 	 */
 	@GetMapping("/current")
-	public User getCurrent(/*@DTO(UserDTO.class)*/ @AuthenticationPrincipal User user) {
-		//User user = modelMapper.map(userDTO, User.class);
-		System.out.println("return current user" + user);
+	public User getCurrent(@AuthenticationPrincipal User user) {
 		return user;
 	}
 
