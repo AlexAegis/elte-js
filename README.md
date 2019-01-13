@@ -1,84 +1,48 @@
-# [Cinema](https://elte-cinema.herokuapp.com/)
+# [Caesar](https://elte-caesar.herokuapp.com/)
 
-[![Demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://elte-cinema.herokuapp.com/) [![Build Status](https://travis-ci.com/AlexAegis/elte-appdev.svg?branch=master)](https://travis-ci.com/AlexAegis/elte-appdev) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f5aec2a4d8d4c959257671ac028dcfa)](https://www.codacy.com/app/AlexAegis/elte-appdev?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/elte-appdev&utm_campaign=Badge_Grade) [![Maintainability](https://api.codeclimate.com/v1/badges/f1d569ea129e57b8eb48/maintainability)](https://codeclimate.com/github/AlexAegis/elte-appdev/maintainability) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Demo](https://img.shields.io/badge/demo-online-ed1c46.svg)](https://elte-caesar.herokuapp.com/) [![Build Status](https://travis-ci.com/AlexAegis/elte-js.svg?branch=master)](https://travis-ci.com/AlexAegis/elte-js) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f5aec2a4d8d4c959257671ac028dcfa)](https://www.codacy.com/app/AlexAegis/elte-js?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/elte-js&utm_campaign=Badge_Grade) [![Maintainability](https://api.codeclimate.com/v1/badges/f1d569ea129e57b8eb48/maintainability)](https://codeclimate.com/github/AlexAegis/elte-js/maintainability) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Compiling and running this is straightforward and only needs Java to be installed, however if you want to jump straight to running the server head over to [releases](https://github.com/AlexAegis/elte-appdev/releases) and grab the newest one. It's a background process so I recommend you starting it in a console if you want to shut it down easily.
+http://people.inf.elte.hu/hapcy/jstech.php
+
+Javascript technológiák beadandó
+A feladat egy szerver- és egy kliensoldali alkalmazás elkészítése lesz, tetszőleges Javascriptes technológiák felhasználásával. Akár az órán látott (express + react-redux), vagy egészen más (pl.: koa + angular2) technológiák is használhatók.
+
+## Feladat
+
+A Caesar-kódolás megvalósítása lesz a feladat a következő módon:
+
+- Egy kliensnek meg kell adnia egy kulcsot (tetszőleges string).
+- A kulcsot elküldi a szervernek, majd a szerver válaszol, hogy az adott kulcshoz milyen eltolás tartozik.
+- Az eltolás ismeretében a kliens oldali alkalmazás képes elkódolni/visszafejteni egy szöveget.
+- A kódolandó/dekódolandó szövegben az angol ábécé betűi, illetve szóközök szerepelhetnek. Az ábécé betűit a kódolásnak megfelelően kódoljuk, a szóközt hagyjuk helyben.
+
+## A megvalósítás részletei
+
+Néhány architektúrális, illetve működési követelményt is támasztunk az alkalmazás egyes részeivel szemben.
+
+### Kliens-oldal
+
+- A kliens-oldali alkalmazást single page application-ként valósítsuk meg, azaz a szerverrel legfeljebb ajax útján kommunikáljon.
+- Az alkalmazás két képernyőből álljon. Egy a kulcs beírásához, egy pedig a kódoláshoz.
+
+### Szerver-oldal
+
+- Az alkalmazás a kulcsokat csak memóriában tárolja. Az egyetlen végpontját egy JSON-t visszaadó tetszőleges végpontként valósítsuk meg.
+- Minden kulcshoz tároljunk egy számot, hogy egy újabb lekéréskor ugyanazt adjuk vissza.
+- Egy még nem ismert kulcs beérkezése esetén generáljunk egy eltolást, amit aztán mentsünk le.
+- Az alkalmazás akár teljesen állapotmentesen is megvalósítható. Ekkor az eltolást egy "tiszta" stringből számot képező függvény segítségével tudjuk megkeresni.
+
+### Példa
+
+Józsi és Sanyi szeretnének titkosítva beszélgetni, ehhez ezt az alkalmazást használják. Megbeszélik, hogy a kulcsuk az 'almafa' szöveg lesz. Mindketten beírják az alkalmazás felületének első oldalán, hogy 'almafa', majd továbbnavigálnak a következő képernyőre. Ott Józsi beírja az elküldendő üzenetet, majd megkapja az elkódolt üzenetet. Az elkódolt üzenetet elküldi Sanyinak, amit Sanyi bemásol, és megkapja a dekódolt üzenetet. Majd ezt fordítva, ameddig így szeretnének beszélgetni. (A megkapja rész történhet automatikusan, kattintással, vagy tetszőleges módon.)
+
+## Building
+
+Compiling and running this is straightforward and only needs Java to be installed, however if you want to jump straight to running the server head over to [releases](https://github.com/AlexAegis/elte-js/releases) and grab the newest one. It's a background process so I recommend you starting it in a console if you want to shut it down easily.
 
 ```cmd
-java -jar cinema.jar
+java -jar caesar.jar
 ```
-
-## Functional requirements
-
-This application provides an interface for cinema employees top schedule movie screenings and for users to get tickets for such screenings.
-
-Users can register on the homepage, after logging in they can view a list of available movies and then apply to it by buying tickets.
-
-Admins can create movies and events.
-
-## Non-functional requirements
-
-The project supposed to be built into a single java executable which contains both the backend and the frontend.
-The application has to be secured via tokens to not let unauthorized access to non-users.
-The application has to implement multi grouped user categories in which we can distinguish between managers, admins
-and regular users.
-
-Keep every asset of the project fresh and updated.
-
-## Entity Relation
-
-![ER Diagram](./.doc/er-diagram.png 'Logo Title Text 1')
-
-## Folder Structure
-
-- **[/](./)** - Readme, License, Backend POM
-  - **[/.doc](./.doc)** - documentation related files
-  - **[/.hotswap](./.hotswap)** - bundled jars to enable JVM hot-swap
-  - **[/.mvn](./.mvn)** - maven wrapper
-  - **[/.postman](./.postman)** - postman profiles for rest endpoint manual testing
-  - **[/.vscode](./.vscode)** - VS Code settings
-  - **[/src](./src)** - Project source
-    - **[/main](./src/main)** - Project source
-      - **[/java](./src/main/java)** - Project source
-        - **[/hu/elte/assignment](./src/main/java/hu/elte/assignment)** - Backend Sources
-          - **[/config](./src/main/java/hu/elte/assignment/config)** - Spring Configurations (Non Security)
-          - **[/controller](./src/main/java/hu/elte/assignment/controller)** - REST Endpoints
-          - **[/data](./src/main/java/hu/elte/assignment/data)** - ORM descriptions
-            - **[/model](./src/main/java/hu/elte/assignment/data/model)** - Entities
-            - **[/repository](./src/main/java/hu/elte/assignment/data/repository)** - Spring Repositories
-          - **[/security](./src/main/java/hu/elte/assignment/security)** - Security Config and Token provider
-          - **[/service](src/main/java/hu/elte/assignment/logic/service)** - Services
-            - **[/auth](src/main/java/hu/elte/assignment/logic/service/auth)** - Authentication Services
-      - **[/resources](./src/main/resources)** - Backend project resources, application config, initial data sql
-        - **[/static](./src/main/resources/static)** - The frontend project will be stored here after building
-      - **[/web](./src/main/web)** - Fronted project root. Angular, npm, ts, tslint and proxy settings
-        - **[/e2e](./src/main/web/e2e)** - End to end testing
-        - **[/src](./src/main/web/src)** - Frontend sources, main.ts, index.html, styles.scss
-          - **[/app](./src/main/web/src/app)** - Angular sources, routing, main app module
-            - **[/components](./src/main/web/src/app/components)** - Components
-            - **[/directives](./src/main/web/src/app/directives)** - Directives
-            - **[/model](./src/main/web/src/app/model)** - Rest API object models
-            - **[/modules](./src/main/web/src/app/modules)** - Modules
-            - **[/services](./src/main/web/src/app/services)** - Services
-          - **[/environments](./src/main/web/src/environments)** - App Configs
-    - **[/test](./src/test)** - Backend testing
-
-## REST
-
-- [/](http://localhost:8080/) - The root redirects you to the angular application
-- [/rest/](http://localhost:8080/rest/) - Every endpoint in the backend is under the rest keyword
-- [/rest/public/](http://localhost:8080/rest/public/) - Non Secured endpoints
-- [/rest/public/users/](http://localhost:8080/rest/public/users/) - Non secured user endpoint
-- **[/rest/public/users/register POST](http://localhost:8080/rest/public/users/register)** Registers a user based on the body of the request
-- **[/rest/public/users/login POST](http://localhost:8080/rest/public/users/login)** Creates a token for the user based on the user credentials in the body
-- [/rest/users](http://localhost:8080/rest/users/) - Secured user endpoints
-- **[/rest/users/current GET](http://localhost:8080/rest/users/current)** - Queries the current user. Testing purposes only as the user is described in the token and gets injected from that already
-- **[/rest/users/logout POST](http://localhost:8080/rest/users/logout)** - Not necessary on server side with token based authentication but I provide a way to blacklist your token with this endpoint
-- [/rest/cinema/](http://localhost:8080/rest/cinema/) - Secured cinema actions
-- **[/rest/movies POST](http://localhost:8080/rest/movies)** - Create a movie
-- **[/rest/movies PUT](http://localhost:8080/rest/movies)** - Update a movie (Has an ID)
-- **[/rest/movies/:id DELETE](http://localhost:8080/rest/movies/1)** - Deletes a movie
-- **[/rest/movies/:id GET](http://localhost:8080/rest/movies/1)** - Reads a movie
 
 ## Security
 
