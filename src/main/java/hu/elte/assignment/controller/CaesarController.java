@@ -1,9 +1,10 @@
 package hu.elte.assignment.controller;
 
-import hu.elte.assignment.data.model.user.User;
+import hu.elte.assignment.api.Response;
 import lombok.experimental.FieldDefaults;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,13 +15,9 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class CaesarController {
 
-	/**
-	 * @param user Same as SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	 * @return
-	 */
-	@GetMapping("/current")
-	public User getCurrent(@AuthenticationPrincipal User user) {
-		return user;
+	@GetMapping("/{seed}")
+	public ResponseEntity<Response<Integer>> getKey(@PathVariable("seed") String seed) {
+		return ResponseEntity.ok(Response.<Integer>builder().data(seed.chars().sum()).build());
 	}
 
 }
