@@ -3,13 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../guard/auth.guard';
 import { RegisterComponent } from 'src/app/component/form/register/register.component';
 import { CaesarComponent } from 'src/app/component/page/caesar/caesar.component';
+import { SeedComponent } from 'src/app/component/page/seed/seed.component';
 
 const routes: Routes = [
 	{
 		path: '',
 		canActivateChild: [AuthGuard],
 		canLoad: ['register'],
-		children: [{ path: 'logout', redirectTo: '' }, { path: 'caesar', component: CaesarComponent }]
+		children: [
+			{ path: 'logout', redirectTo: '' },
+			{ path: 'caesar', component: SeedComponent },
+			{ path: 'caesar/:seed', component: CaesarComponent }
+		]
 	},
 	{ path: 'register', component: RegisterComponent }
 ];

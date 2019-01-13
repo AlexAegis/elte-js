@@ -1,0 +1,13 @@
+<div [formGroup]="parent">
+	<div formGroupName="seed">
+		<mat-form-field hideRequiredMarker id="seed">
+			<input matInput formControlName="seed" placeholder="Seed" />
+
+			<mat-error *ngIf="seed.controls['seed']?.dirty && seed.controls['seed']?.errors?.required">
+				Reqired
+			</mat-error>
+
+			<mat-spinner *ngIf="seed.controls['seed']?.pending" color="accent" diameter="20" matSuffix></mat-spinner>
+		</mat-form-field>
+	</div>
+</div>

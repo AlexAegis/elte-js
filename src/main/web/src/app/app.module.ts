@@ -41,6 +41,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { CaesarFormComponent } from './component/form/caesar-form/caesar-form.component';
+import { SeedComponent } from './component/page/seed/seed.component';
+import { SeedFormComponent } from './component/form/seed-form/seed-form.component';
 
 @NgModule({
 	entryComponents: [LoadingComponent],
@@ -62,6 +64,8 @@ import { CaesarFormComponent } from './component/form/caesar-form/caesar-form.co
 		SidebarComponent,
 		HamburgerComponent,
 		CaesarComponent,
+		SeedComponent,
+		SeedFormComponent,
 		CaesarFormComponent
 	],
 	imports: [

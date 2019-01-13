@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ApiResponse } from 'src/app/api/api-response.interface';
 import { validateObservable } from 'src/app/validator/observable.validator';
@@ -18,24 +18,9 @@ export class CaesarFormComponent implements OnInit {
 
 	caesar: FormGroup;
 
-	seedFocused: boolean;
-
 	ngOnInit() {
-		this.seedFocused = true;
 		this.caesar = this.formBuilder.group({
-			seed: [
-				'',
-				[Validators.required],
-				[
-					validateObservable<ApiResponse<ICaesar.SeedResponse>>(
-						(ctrl: AbstractControl) => this.caesarService.shift(ctrl.value),
-						(result: ApiResponse<ICaesar.SeedResponse>) =>
-							result.data.shift ? { resolved: true } : undefined,
-						200,
-						false
-					)
-				]
-			],
+			seed: ['', [Validators.required]],
 			decryptedMessage: ['', []],
 			encryptedMessage: ['', []]
 		});

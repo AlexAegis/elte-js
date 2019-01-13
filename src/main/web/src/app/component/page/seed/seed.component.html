@@ -1,0 +1,7 @@
+<div [hidden]="!loaded">
+	<h1>Seed</h1>
+	<button id="next" form="seedForm" type="submit" mat-flat-button [disabled]="!seedForm.valid">Next</button>
+	<form id="seedForm" [formGroup]="seedForm" (submit)="submit()">
+		<app-seed-form #seedFormComp [parent]="seedForm"></app-seed-form>
+	</form>
+</div>
