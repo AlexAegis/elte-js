@@ -1,0 +1,6 @@
+<div [hidden]="!loaded">
+	<h1>Encrypt</h1>
+	<form id="caesarForm" [formGroup]="caesarForm" (submit)="save()">
+		<app-caesar-form #caesarFormComp [parent]="caesarForm"></app-caesar-form>
+	</form>
+</div>

@@ -33,15 +33,14 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { SmoothScrollModule } from 'ngx-scrollbar';
 import { SidebarComponent } from './component/element/sidebar/sidebar.component';
 import { HamburgerComponent } from './component/element/hamburger/hamburger.component';
-import { MovieListComponent } from './component/page/movie-list/movie-list.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { MovieComponent } from './component/page/movie/movie.component';
+import { CaesarComponent } from './component/page/caesar/caesar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
-import { MovieFormComponent } from './component/form/movie-form/movie-form.component';
+import { CaesarFormComponent } from './component/form/caesar-form/caesar-form.component';
 
 @NgModule({
 	entryComponents: [LoadingComponent],
@@ -62,9 +61,8 @@ import { MovieFormComponent } from './component/form/movie-form/movie-form.compo
 		FocusDirective,
 		SidebarComponent,
 		HamburgerComponent,
-		MovieListComponent,
-		MovieComponent,
-		MovieFormComponent
+		CaesarComponent,
+		CaesarFormComponent
 	],
 	imports: [
 		BrowserModule,

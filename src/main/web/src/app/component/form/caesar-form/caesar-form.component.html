@@ -1,0 +1,13 @@
+<div [formGroup]="parent">
+	<div formGroupName="caesar">
+		<mat-form-field hideRequiredMarker id="caesar-form">
+			<input matInput formControlName="seed" placeholder="Seed" [(focus)]="seedFocused" />
+
+			<mat-error *ngIf="caesar.controls['seed']?.dirty && caesar.controls['seed']?.errors?.required">
+				Reqired
+			</mat-error>
+
+			<mat-spinner *ngIf="caesar.controls['seed']?.pending" color="accent" diameter="20" matSuffix></mat-spinner>
+		</mat-form-field>
+	</div>
+</div>

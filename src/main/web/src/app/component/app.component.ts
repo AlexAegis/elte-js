@@ -79,7 +79,7 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
 	]
 })
 export class AppComponent implements OnInit {
-	title: string = 'Cinema';
+	title: string = 'Caesar';
 
 	open: boolean = true;
 	exp: boolean = true;

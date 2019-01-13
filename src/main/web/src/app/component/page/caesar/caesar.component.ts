@@ -1,54 +1,51 @@
-import { PersonComponent } from './../../form/people/person/person.component';
+import { PersonComponent } from '../../form/people/person/person.component';
 import { Subscription, Observable, of } from 'rxjs';
-import { MovieService } from './../../../service/movie/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
-import { MovieFormComponent } from '../../form/movie-form/movie-form.component';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { mergeMap, switchMap, defaultIfEmpty } from 'rxjs/operators';
 import { ApiResponse } from 'src/app/api/api-response.interface';
-import { MovieResponse } from 'src/app/api/movies/movies.get.interface';
-import { Movie } from 'src/app/model/movie/movie.interface';
+import { CaesarFormComponent } from '../../form/caesar-form/caesar-form.component';
+import { CaesarService } from 'src/app/service/caesar/caesar.service';
 
 @Component({
-	selector: 'app-movie',
-	templateUrl: './movie.component.html',
-	styleUrls: ['./movie.component.scss']
+	selector: 'app-caesar',
+	templateUrl: './caesar.component.html',
+	styleUrls: ['./caesar.component.scss']
 })
-export class MovieComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CaesarComponent implements OnInit, OnDestroy, AfterViewInit {
 	constructor(
 		public activatedRoute: ActivatedRoute,
 		private formBuilder: FormBuilder,
-		private movieService: MovieService,
+		private caesarService: CaesarService,
 		private router: Router
 	) {}
 
-	movieForm: FormGroup;
+	caesarForm: FormGroup;
 
-	@ViewChild('movieForm')
-	movieFormComponent: MovieFormComponent;
-	movieFromParam$: Observable<Movie>;
+	@ViewChild('caesarForm')
+	caesarFormComponent: CaesarFormComponent;
 	unsub: Array<Subscription> = [];
 	existing: boolean = false;
 	loaded: boolean = true;
 
 	ngOnInit(): void {
-		this.movieForm = this.formBuilder.group({});
-		this.movieFromParam$ = this.activatedRoute.params.pipe(
+		this.caesarForm = this.formBuilder.group({});
+		/*this.caesarFromParam$ = this.activatedRoute.params.pipe(
 			switchMap(params => {
 				console.log('resolved!!');
 				if (params && params.id) {
 					this.loaded = false;
-					return this.movieService.movie(params.id);
+					return this.caesarService.movie(params.id);
 				} else return of();
 			})
 		);
 		this.unsub.push(
-			this.movieFromParam$.subscribe(result => {
+			this.caesarFromParam$.subscribe(result => {
 				if (result) {
 					console.log('yay existing!!');
 
-					const actorsArray: FormArray = this.movieForm.get('movie').get('actors') as FormArray;
+					const actorsArray: FormArray = this.caesarForm.get('movie').get('actors') as FormArray;
 
 					for (let i = 0; i < result.actors.length; i++) {
 						const actorGroup: FormGroup = this.formBuilder.group({
@@ -62,30 +59,30 @@ export class MovieComponent implements OnInit, OnDestroy, AfterViewInit {
 					this.existing = true;
 				}
 			})
-		);
+		);*/
 	}
 
 	ngAfterViewInit(): void {
-		this.unsub.push(
-			this.movieFromParam$.subscribe(result => {
+		/*this.unsub.push(
+			this.caesarFromParam$.subscribe(result => {
 				this.loaded = true;
 				if (result) {
-					this.movieForm.patchValue({ movie: result });
+					this.caesarForm.patchValue({ movie: result });
 				}
 			})
-		);
+		);*/
 	}
 	save(): void {
-		let o = this.movieForm.value;
+		/*let o = this.caesarForm.value;
 		this.unsub.push(
-			this.movieService.save(this.movieForm.value.movie).subscribe(
+			this.caesarService.save(this.caesarForm.value.movie).subscribe(
 				movie => this.router.navigate(['movies'], { queryParams: { last: movie.id } }),
 				err => {
 					console.log(`errored: ${err}`);
 					console.log(err);
 				}
 			)
-		);
+		);*/
 		console.log('save called');
 	}
 
