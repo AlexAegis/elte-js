@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "lessons/demo/package.json",
+        "lessons/package.json",
+        "src/main/web/package.json"
+      ]
+    }
+  }
+}
