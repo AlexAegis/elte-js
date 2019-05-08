@@ -8,7 +8,7 @@
 		"rxjs": "~6.4.0"
 	},
 	"devDependencies": {
-		"create-react-app": "^2.0.3"
+		"create-react-app": "^3.0.1"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
